@@ -1,0 +1,17 @@
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        totalRows, totalCols = len(matrix), len(matrix[0])
+        rows, cols = [False] * totalRows, [False] * totalCols
+
+        for row in range(totalRows):
+            for col in range(totalCols):
+                if matrix[row][col] == 0:
+                    rows[row] = True
+                    cols[col] = True
+
+        for row in range(totalRows):
+            for col in range(totalCols):
+                if rows[row] or cols[col]:
+                    matrix[row][col] = 0
+
+        
